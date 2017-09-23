@@ -1,0 +1,3 @@
+document.getElementById('monbouton').style.display='none';
+window.print();
+document.getElementById('monbouton').style.display='block';
