@@ -17,7 +17,7 @@
 <div class="clientfacts form large-9 medium-8 columns content">
     <?= $this->Form->create($clientfact) ?>
     <fieldset>
-        <legend><?= __('Edit Clientfact') ?></legend>
+        <legend  style="font-family:Times new roman; color:blue;"><?= __('Edit Clientfact') ?></legend>
         <?php
             echo $this->Form->input('clfact');
             echo $this->Form->input('client_id', ['options' => $clients]);

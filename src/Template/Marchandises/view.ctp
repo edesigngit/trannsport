@@ -1,5 +1,5 @@
 <div class="marchandises view large-9 medium-8 columns content">
-    <h3><?= h($marchandise->id) ?></h3>
+    <h3 style="font-family:Times new roman; color:blue;"><?= h($marchandise->id) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Category') ?></th>

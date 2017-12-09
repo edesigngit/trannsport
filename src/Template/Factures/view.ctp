@@ -1,36 +1,65 @@
 <html>
 <head>
-  <title></title>
+<title></title>
+</head>
 <body>
 <div class='card' style="font-family:Times new roman;">
 <div class="facture view large-5 medium-8 columns content">
-  <center><img src='/transport/img/logo.bmp' border=1 width="60%" height="10%"></center>
-  <legend> <center><b>FACTURE </center> <h6 align=right> Numero:&nbsp<?= h($facture->clientfact->clfact) ?></h6></legend>
-	<?php $date = date("d-m-Y"); 	?>
-    <p>Date du : <?php echo date_format($facture->clientfact->created,"d-M-Y"); ?>
-	<u><b><p>DOIT: </p></b></u>
-	<?php $fact = $facture->clientfact->id ?>
-	<table width=50%>
+  <center><img src='/transport/img/logo.bmp' border='0' width="60%" height="0%"></center>
+  <legend><H2 style="font-family:Times new roman; color:blue;"> <center><b>FACTURE </center></H2></legend>
+
+  <h6 align=right> Numero: <?= h($facture->clfact) ?> </h6>
+	<?php $date = date('d-m-Y'); 	?>
+    <p> Date du : <?php echo date_format($facture->created,"d-M-Y"); ?></p>
+    <u><b><p>DOIT: </p></b></u>
+    <?php $fact = $facture->id ?>
+<div class="row">
+  <div class="col-xs-6">
+	  <table width=100%>
 	    <tr>
       <th scope="row"><?= ('Numero Client') ?></th>
-      <td>:&nbsp<?= h($facture->client->num)?></td>
+      <td>:<?= h($facture->client->num)?></td>
       <tr><th scope="row"><?= ('Nom Client') ?></th>
-			<td>:&nbsp<?= h($facture->client->nom)?></td>
+			<td>:<?= h($facture->client->nom)?></td>
       <tr><th scope="row"><?= ('Prenom Client') ?></th>
-			<td>:&nbsp<?= h($facture->client->prenom) ?></td>
+			<td>:<?= h($facture->client->prenom) ?></td>
 			</tr>
 			<tr><th scope="row"><?= ('Adresse Client') ?></th>
-			<td>:&nbsp<?=h($facture->client->adresse) ?></td>
+			<td>:<?=h($facture->client->adresse) ?></td>
       </tr>
 			<tr><th scope="row"><?= ('Ville') ?></th>
-			<td>:&nbsp<?=h($facture->client->ville) ?></td>
+			<td>:<?=h($facture->client->ville) ?></td>
       </tr>
 			<tr><th scope="row"><?= ('Téléphone') ?></th>
-			<td>:&nbsp<?=h($facture->client->telephone)?></td>
+			<td>:<?=h($facture->client->telephone)?></td>
 			<tr><th scope="row"><?= ('Email') ?></th>
-			<td>:&nbsp<?=h($facture->client->email)?></td>
+			<td>:<?=h($facture->client->email)?></td>
     </tr>
 	</table>
+</div>
+  <div class="col-xs-6">
+  <table width=100%>
+    <tr>
+    <th scope="row"><?= ('Transport') ?></th>
+    <td>: MSBALEINE</td>
+    <tr><th scope="row"><?= ('Adresse') ?></th>
+    <td>:Ambitsiky, Mananara Nord</td>
+    <tr><th scope="row"><?= ('NIF') ?></th>
+    <td>:5000744582</td>
+    </tr>
+    <tr><th scope="row"><?= ('N° STAT') ?></th>
+    <td>:46201 32 2012 0 00051</td>
+    </tr>
+    <tr><th scope="row">Télephone</th>
+    <td>:+261 00 00 000 00</td>
+    </tr>
+    <tr><th scope="row"><?= ('Email') ?></th>
+    <td>:msbaleine@gmail.com</td>
+  </tr>
+</table>
+</div>
+</div>
+
 	<hr color="blue">
 	<div class="related">
 	<table class="horizontal-table table-bordered" width=100%>
@@ -68,5 +97,8 @@
 
         </tr>
     </table>
-  <h6><i> Arrêter la presente facture au somme de Ar <?php echo $this->Number->format($total,['places' => 2,'locale' => 'fr_FR']); ?>
+  </div>
 </div>
+  <h6><i> Arrêtée la présente facture a la somme de Ar <?php echo $this->Number->format($total,['places' => 2,'locale' => 'fr_FR']); ?>
+<?php echo $this->element('css/print');
+$this->end(); ?>

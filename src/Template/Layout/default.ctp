@@ -27,10 +27,9 @@
     <?= $this->fetch('script') ?>
 
 </head>
-<body>
+<body bgcolor = #3B0B2E>
 
 <div class="wrapper">
-
     <?php
 		echo $this->element('light/sidebar');
 	?>
@@ -49,28 +48,22 @@
             	</div>
             </div>
         </div>
-
-
+				</div>
         <footer class="footer"  width=80%>
-            <div class="container-fluid", "col-sm-8">
+            <div class="container-fluid", "col-sm-6">
                 <nav class="pull-left">
                     <ul>
                         <div>
-                            <h10>
-<p>TRANSPORTEUR MARITIME,
-<p>Adresse: Ambitsiky, Mananara Nord.
-</h10>
-                        </div>
-
+													<h8 style="font-family:Times new roman;">Transport maritime MS BALEINE  </h6>
+											</div>
                         <!--        here you can add more links for the footer                       -->
                     </ul>
                 </nav>
                 <div class="copyright pull-right">
 									<?php $date = date("d-M-Y"); 	?>
                   <h8 align=right><i>Toamasina le, </a><?php echo $date; ?></h8>
-            </div>
+						</div>
         </footer>
-
     </div>
 </div>
 

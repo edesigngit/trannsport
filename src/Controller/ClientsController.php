@@ -1,6 +1,5 @@
-<?php
+<?PHP
 namespace App\Controller;
-
 use App\Controller\AppController;
 
 /**
@@ -23,7 +22,6 @@ class ClientsController extends AppController
         $this->set(compact('clients'));
         $this->set('_serialize', ['clients']);
     }
-
     /**
      * View method
      *
@@ -36,7 +34,6 @@ class ClientsController extends AppController
         $client = $this->Clients->get($id, [
             'contain' => ['BonLivraisons', 'Factures']
         ]);
-
         $this->set('client', $client);
         $this->set('_serialize', ['client']);
     }
@@ -112,5 +109,11 @@ class ClientsController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+    public function liste()
+    {
+        $clients = $this->Clients->find(all);
+        $this->set(compact('clients'));
+        $this->set('_serialize', ['clients']);
     }
 }

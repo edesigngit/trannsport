@@ -2,18 +2,18 @@
 namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
+use Cake\Auth\DefaultPasswordHasher;
 
 /**
  * User Entity
  *
  * @property int $id
- * @property string $full_name
  * @property string $username
  * @property string $password
  * @property string $role
- * @property string|resource $photo
  * @property \Cake\I18n\Time $created
  * @property \Cake\I18n\Time $modified
+ * @property string $full_name
  */
 class User extends Entity
 {
@@ -40,4 +40,10 @@ class User extends Entity
     protected $_hidden = [
         'password'
     ];
+    
+
+    protected function _setPassword($password)
+    {
+        return (new DefaultPasswordHasher)->hash($password);
+    }
 }

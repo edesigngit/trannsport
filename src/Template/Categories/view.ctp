@@ -1,7 +1,7 @@
 <div class="categories view large-9 medium-8 columns content">
-    <h3>Marchandise N°<?= h($category->id) ?></h3>
+    <legend style="font-family:Times new roman;"><font color=#0404B4>Marchandise N°<?= h($category->id) ?></font></legend>
     <div class=card>
-	<table class="vertical-table" class="table">
+	<table class="table vertical-table">
         <tr>
             <th scope="row"><?= __('Categorie') ?></th>
             <td>:&nbsp <?= h($category->categorie) ?></td>

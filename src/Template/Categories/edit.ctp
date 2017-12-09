@@ -1,7 +1,7 @@
 <div class="categories form large-9 medium-8 columns content">
     <?= $this->Form->create($category) ?>
     <fieldset>
-        <legend><?= __('Modifier Marchandise') ?></legend>
+        <legend  style="font-family:Times new roman; color:blue;"><?= __('Modifier Marchandise') ?></legend>
         <?php
             echo $this->Form->input('ref_categorie',['class'=>'form-control']);
             echo $this->Form->input('categorie',['class'=>'form-control']);

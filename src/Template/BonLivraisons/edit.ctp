@@ -21,7 +21,7 @@
 <div class="bonLivraisons form large-9 medium-8 columns content">
     <?= $this->Form->create($bonLivraison) ?>
     <fieldset>
-        <legend><?= __('Edit Bon Livraison') ?></legend>
+        <legend  style="font-family:Times new roman; color:blue;"><?= __('Edit Bon Livraison') ?></legend>
         <?php
             echo $this->Form->input('client_id', ['options' => $clients]);
             echo $this->Form->input('marchandise_id', ['options' => $marchandises]);

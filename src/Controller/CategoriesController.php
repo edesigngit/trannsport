@@ -10,7 +10,6 @@ use App\Controller\AppController;
  */
 class CategoriesController extends AppController
 {
-
     /**
      * Index method
      *
@@ -61,7 +60,7 @@ class CategoriesController extends AppController
         }
         $this->set(compact('category'));
         $this->set('_serialize', ['category']);
-		
+
 		/* ===============================for the view ========================================*/
 		$categories = $this->paginate($this->Categories);
 
@@ -113,5 +112,12 @@ class CategoriesController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+    public function marchandise()
+    {
+        $categories = $this->Categories->find(all);
+
+        $this->set(compact('categories'));
+        $this->set('_serialize', ['categories']);
     }
 }

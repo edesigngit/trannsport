@@ -1,5 +1,5 @@
 <div class="marchandises index large-9 medium-8 columns content">
-    <h3><?= __('Liste Marchandises') ?></h3>
+    <h3 style="font-family:Times new roman; color:blue;"><?= __('Liste Marchandises') ?></h3>
     <div class="card">
     <div class="content">
     <table cellpadding="0" cellspacing="0" class="table-bordered" width=100%>

@@ -140,13 +140,13 @@
           </li>
 		  <li>
           <?php
-          echo $this->Html->link('Liste Bon de Livraison',['controller' => 'clientfacts', 'action' => 'index']);
+          echo $this->Html->link('Listes Factures',['controller' => 'Factures', 'action' => 'liste']);
           ?>
           </li>
-		  
+
           <li>
           <?php
-          echo $this->Html->link('Listes Factures',['controller' => 'factures', 'action' => 'index']);
+          echo $this->Html->link('Listes Enregistrements',['controller' => 'factures', 'action' => 'index']);
           ?>
           </li>
 

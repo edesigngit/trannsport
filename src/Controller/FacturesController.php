@@ -28,11 +28,11 @@ class FacturesController extends AppController
      * @return \Cake\Network\Response|null
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function view($id = null)
+    public function view($clfact = null)
     {
       //===========EN TETE FACTURE ===========================
-        $facture = $this->Factures->get($id, [
-            'contain' => ['Clientfacts', 'Categories', 'Voyages','Clients']
+        $facture = $this->Factures->Clientfacts->get($clfact, [
+            'contain' => ['Clients']
         ]);
         $this->set('facture', $facture);
         $this->set('_serialize', ['facture']);
@@ -43,6 +43,16 @@ class FacturesController extends AppController
         $this->set(compact('factures'));
         $this->set('_serialize', ['factures']);
              }
+
+   public function voire($id = null)
+      {
+      //===========EN TETE FACTURE ===========================
+      $facture = $this->Factures->get($id, [
+      'contain' => ['Clients','Clientfacts','Categories']
+      ]);
+      $this->set('facture', $facture);
+      $this->set('_serialize', ['facture']);
+      }
 
     /**
      * Add method
@@ -67,7 +77,7 @@ class FacturesController extends AppController
         $voyages = $this->Factures->Voyages->find('list')->order(['modified'=>'Desc']) ->limit(1);
         $clientf = $this->Factures->Clientfacts->find()->select('clfact')->order(['modified'=>'desc'])->limit(1);
         $clientbl = $this->Factures->Clientfacts->find()->select('id')->order(['modified'=>'desc'])->limit(1);
-        $fact = $this->Factures->find()->select('id')->order(['modified'=>'desc'])->limit(1);
+        $fact = $this->Factures->Clientfacts->find()->select('id')->order(['modified'=>'desc'])->limit(1);
         $this->set(compact('facture', 'clientfacts', 'categories', 'voyages','clientnums','clientf','fact', 'clientbl'));
         $this->set('_serialize', ['facture']);
 
@@ -128,5 +138,19 @@ class FacturesController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+    public function clientes($id = null)
+    {
+        $clientes = $this->Factures->Clients->get($id);
+        $factures = $this->Factures->find(all,['contain' => ['Clientfacts', 'Categories', 'Voyages','Clients']]);
+        $this->set('clientes', $clientes);
+        $this->set(compact('factures'));
+        $this->set('_serialize', ['clientes','factures']);
+    }
+    public function liste()
+    {
+        $listes = $this->Factures->Clientfacts->find(all,['contain' => ['Clients']]);
+        $this->set(compact('listes'));
+        $this->set('_serialize', ['listes']);
     }
 }

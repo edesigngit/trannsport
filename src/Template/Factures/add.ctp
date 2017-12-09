@@ -4,7 +4,7 @@
 	<div class="content">
 		<div class="form-group">
 			<div class="row">
-				<legend><?= __('Traitement Facture') ?></legend>
+				<legend  style="font-family:Times new roman; color:blue;"><?= __('Traitement Facture') ?></legend>
 				<div class="col-md-4">
         <label> Num Facture </label>
 				<?php
@@ -15,8 +15,10 @@
 				<?php
 				foreach ($clientnums as $clientnum):
 				$cl= h($clientnum->client_id);
-				echo $this->Form->input('client_id', ['type'=>'text','class'=>'form-control','default'=>$cl]);
-				?>
+        echo "
+        <label> Numerô Client </label>";
+				echo "<p>", "<table border=0 width=100%> <tr><td width=100% class=form-control> $cl </td></tr></table>" ;
+        ?>
 				<?php
 				endforeach;
 				?>
@@ -24,7 +26,7 @@
 				<div class="col-md-4">
 				<?php
 				echo $this->Form->input('voyage_id', ['class'=>'form-control','options' => $voyages]);
-				?>
+      	?>
 				</div>
 			</div>
 	</div>
@@ -51,22 +53,19 @@
 			</div>
 		</div>
 		</div>
-        <?= $this->Form->button(__('Submit')) ?>
+        <?= $this->Form->button(__('Enregistrer')) ?>
 		<?= $this->Form->end() ?>
-
 <div class="btn btn-sm btn-default">
-<?= $this->Html->link('Nouveau Facture',['controller'=>'Clientfacts', 'action'=>'add']); ?></div>
+<?= $this->Html->link('Nouvelle Facture',['controller'=>'Clientfacts', 'action'=>'add']); ?></div>
 
 <?php foreach ($clientbl as $bl): ?>
 <div class="btn btn-sm btn-default">
-<?= $this->Html->link('Imprimer BL',['controller'=>'Clientfacts', 'action'=>'view', $bl->id]); ?></div>
+<?= $this->Html->link('Aperçu BL',['controller'=>'Clientfacts', 'action'=>'view', $bl->id]); ?></div>
 <?php endforeach; ?>
-<?php if ($this->request->session()->read('Auth.User.role')  == 'admin'):?>
 <?php foreach ($fact as $factu): ?>
 <div class="btn btn-sm btn-default">
-<?= $this->Html->link('Imprimer Facture',['controller'=>'Factures', 'action'=>'view', $factu->id]);?></div>
+<?= $this->Html->link('Aperçu Facture',['controller'=>'Factures', 'action'=>'view', $factu->id]);?></div>
 <?php endforeach; ?>
-<?php endif;?>
 </div>
 
 </div>
@@ -84,7 +83,7 @@
                 <th>CATEGORIE</th>
                 <th>VOYAGE</th>
                 <th>QUANTITE</th>
-                <th>UNITE&acute</th>
+                <th>UNITE</th>
                 <th>DATE</th>
                 <th>MODIFICATION</th>
                 <th class="actions"><?= __('Actions') ?></th>
@@ -112,8 +111,14 @@ for ($i=1; $i>1; $i++)
         <td><?= h($facture->created) ?></td>
         <td><?= h($facture->modified) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('Editer'), ['action' => 'edit', $facture->id]) ?>
+                    <?= $this->Html->link(__('Modifier'), ['action' => 'edit', $facture->id]) ?>
+                    <?php
+                    if ($this->request->session()->read('Auth.User.role')  == 'admin' ||
+                          $this->request->session()->read('Auth.User.role')  == 'manager'
+                        ):
+                    ?>
                     <?= $this->Form->postLink(__('Suppr'), ['action' => 'delete', $facture->id], ['confirm' => __('Are you sure you want to delete # {0}?', $facture->id)]) ?>
+                    <?php endif; ?>
                 </td>
       		</tr>
       <?php endif; ?>
@@ -129,4 +134,5 @@ for ($i=1; $i>1; $i++)
         </ul>
         <p><?= $this->Paginator->counter() ?></p>
     </div>
+</div>
 </div>

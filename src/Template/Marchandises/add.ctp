@@ -1,6 +1,6 @@
 <div class="marchandises form large-9 medium-8 columns content">
     <?= $this->Form->create($marchandise) ?>
-    <legend><?= __('Ajouter Marchandise') ?></legend>
+    <legend style="font-family:Times new roman; color:blue;"><?= __('Ajouter Marchandise') ?></legend>
     <div class="card">
     <div class="content">
     <div class="form-group">
@@ -12,6 +12,6 @@
             echo $this->Form->input('libelles', [ 'class'=>'form-control']);
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('Enregistrer')) ?>
     <?= $this->Form->end() ?>
 </div>

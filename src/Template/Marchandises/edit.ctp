@@ -19,7 +19,7 @@
 <div class="marchandises form large-9 medium-8 columns content">
     <?= $this->Form->create($marchandise) ?>
     <fieldset>
-        <legend><?= __('Edit Marchandise') ?></legend>
+        <legend  style="font-family:Times new roman; color:blue;"><?= __('Edit Marchandise') ?></legend>
         <?php
             echo $this->Form->input('categorie_id', ['options' => $categories]);
             echo $this->Form->input('reference');

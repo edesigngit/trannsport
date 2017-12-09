@@ -3,7 +3,7 @@
 <div class="clients form large-9 medium-8 columns content">
     <?= $this->Form->create($client) ?>
     <fieldset>
-        <legend><?= __('Modifier Client') ?></legend>
+        <legend style="font-family:Times new roman; color:blue;"><?= __('MODIFIER CLIENT') ?></legend>
         <div class="row">
 		<div class="col-md-4">
             <?php echo $this->Form->input('num',['class'=>'form-control']);?>
@@ -33,7 +33,6 @@
     </div>
 	</div>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('Enregistrer')) ?>
     <?= $this->Form->end() ?>
 </div>
-

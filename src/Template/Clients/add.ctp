@@ -1,17 +1,16 @@
 <div class="clients form large-9 medium-8 columns content">
 <?= $this->Form->create($client) ?>
-<H3 style="font-family:Times new roman;"><font color=blue><u><?= __('NOUVEAU CLIENT') ?></H3>
-<div class="card">
+<legend style="font-family:Times new roman; color:blue;"><?= __('NOUVEAU CLIENT') ?></legend>
+
+  <?php foreach($clientnum as $cl):
+  echo '<div class="btn btn-xs" style="font-family:Times new roman;"><font color = #FE2E2E> Dernier Numerô:','&nbsp', $cl->num++, '</div></font>';
+  endforeach;
+  ?>
+<div class="card ">
 <div class="content">
 <div class="row">
 <div class="form-group">
-  <div class="col-md-2">
-    <?php foreach($clientnum as $cl):
-    echo '<div class="btn btn-xs" style="font-family:Times new roman;"><font color = #4F4FF4> Dernier Numerô:','&nbsp', $cl->num++, '</div></font>';
-    endforeach;
-    ?>
-  </div>
-    <div class="col-md-4">
+<div class="col-md-4">
         <?php echo $this->Form->input('num',['class'=>'form-control', 'placeholder'=>'0001', 'minLength'=>6]);?>
     </div>
     </div>
@@ -47,7 +46,6 @@
   </div>
   </div>
   </div>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('Enregistrer')) ?>
     <?= $this->Form->end() ?>
-</div>
 </div>

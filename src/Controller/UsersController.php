@@ -5,7 +5,6 @@ use App\Controller\AppController;
 use Cake\Event\Event;
 use Cake\Auth\DefaultPasswordHasher;
 use Cake\View\Helper\SessionHelper;
-
 /**
  * Users Controller
  *

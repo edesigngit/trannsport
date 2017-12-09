@@ -1,5 +1,5 @@
 <div class="card" style="font-family:Times new roman;" >
-    <legend align=center><?= __('Liste Bon de Livraison') ?></legend>
+    <legend  style="font-family:Times new roman; color:blue;"><?= __('Liste Bon de Livraison') ?></legend>
     <table cellpadding="0" cellspacing="0" class='table-bordered' width=100%>
         <thead bgcolor=#5F5FF5>
             <tr>
@@ -20,7 +20,7 @@
                 <td  align=center><?= date_format($clientfact->created,'d-M-Y') ?></td>
                 <td  align=center><?= date_format($clientfact->modified,'d-M-Y') ?></td>
                 <td  class="actions" >
-                    <center><?= $this->Html->link(__('Imprimer'), ['action' => 'view', $clientfact->id]) ?>
+                    <center><?= $this->Html->link(__('Aperçu'), ['action' => 'view', $clientfact->id]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

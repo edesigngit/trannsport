@@ -1,5 +1,5 @@
 <div class="bonLivraisons index large-9 medium-8 columns content">
-    <legend><?= __('Bon Livraisons') ?></legend>
+  <legend  style="font-family:Times new roman; color:blue;"><?= __('Bon Livraisons') ?></legend>
     <table cellpadding="0" cellspacing="0" class="table-bordered" width=100%>
         <thead bgcolor=#5F5FF5>
             <tr>
@@ -27,8 +27,15 @@
                 <td><?= h($bonLivraison->modified) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $bonLivraison->id]) ?>
+                    <?php
+                    if ($this->request->session()->read('Auth.User.role')  == 'admin' ||
+      										$this->request->session()->read('Auth.User.role')  == 'manager'
+      									):
+                    ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $bonLivraison->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $bonLivraison->id], ['confirm' => __('Are you sure you want to delete # {0}?', $bonLivraison->id)]) ?>
+                    <?php endif; ?>
+                   <?php endif; ?>
                 </td>
             </tr>
             <?php endforeach; ?>

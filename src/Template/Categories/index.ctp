@@ -1,6 +1,7 @@
 <body style="font-family:Times new roman;">
 <div class="categories index large-9 medium-8 columns content">
-    <legend><?= __('LISTE MARCHANDISES') ?></legend>
+    <legend style="font-family:Times new roman; color:blue;"><?= __('LISTE MARCHANDISES') ?></legend>
+    <div class="btn btn-xs"><?= $this->Html->link(__('Aperçu'),['controller'=>'Categories', 'action'=>'marchandise']) ?></div>
     <div class="card">
     <div class="content">
     <table cellpadding="0" cellspacing="0" class="table-bordered" width=100%>
@@ -30,8 +31,14 @@
                 <td><?= date_format($category->modified,'d/M/Y') ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('Voir'), ['action' => 'view', $category->id]) ?>
+                    <?php
+                    if ($this->request->session()->read('Auth.User.role')  == 'admin' ||
+                          $this->request->session()->read('Auth.User.role')  == 'manager'
+                        ):
+                    ?>
                     <?= $this->Html->link(__('Editer'), ['action' => 'edit', $category->id]) ?>
                     <?= $this->Form->postLink(__('Suppr'), ['action' => 'delete', $category->id], ['confirm' => __('Are you sure you want to delete # {0}?', $category->id)]) ?>
+                    <?php endif; ?>
                 </td>
             </tr>
             <?php endforeach; ?>

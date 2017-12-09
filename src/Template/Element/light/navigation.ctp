@@ -6,6 +6,8 @@
                 <i class="fa fa-navicon visible-on-sidebar-mini"></i>
             </button>
         </div>
+
+
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -25,7 +27,6 @@
 				    'role'	=>  "search"
 				]);
             ?>
-
         	<div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-search"></i></span>
                 <input type="text" name="q" value="" class="form-control" placeholder="Recherche ici...">

@@ -3,13 +3,11 @@ use Cake\Routing\Router;
 use Cake\View\Helper\UrlHelper;
 
 ?>
-
 	<div class="card">
-
 		<div class="row">
 			<div class="col-md-3">
 			</div>
-			<div class="col-md-9 header">Nouvel utilisateur</div>
+			<legend style="font-family:Times new roman; color:blue;">Nouvel utilisateur</legend>
 		</div>
         <div class="content">
 
@@ -23,8 +21,6 @@ use Cake\View\Helper\UrlHelper;
 		                <?php echo $this->Form->input('full_name', ['id' => 'full_name','class' =>'form-control', 'placeholder' => "Nom et prenoms", 'required' => 'true', 'label' => false]); ?>
 	                </div>
 	            </div>
-
-
 	            <div class="form-group">
 	                <label class="col-md-3 control-label">Username<star>*</star></label>
 
@@ -47,7 +43,7 @@ use Cake\View\Helper\UrlHelper;
 
 	                <div class="col-md-9">
 						<?php
-		                	$opts = array('user' => 'User', 'admin'=>'Admin');
+		                	$opts = array('user' => 'User', 'admin' => 'Admin','manager' => 'Manager');
 							echo $this->Form->input('role', ['id' => 'role','class' =>'form-control', 'placeholder' => "Role", 'required' => 'true', 'label' => false, 'type' => 'select', 'options' => $opts]); ?>
 	                </div>
 

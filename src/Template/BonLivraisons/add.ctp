@@ -1,7 +1,7 @@
 <div class="bonLivraisons form large-9 medium-8 columns content">
     <?= $this->Form->create($bonLivraison) ?>
     <fieldset>
-        <legend><?= __('Traitement Bon Livraison') ?></legend>
+        <legend  style="font-family:Times new roman; color:blue;"><?= __('Traitement Bon Livraison') ?></legend>
         <div class="card">
         <div class="content">
         <div class="form-group">
@@ -15,6 +15,6 @@
             echo $this->Form->input('quantite',['class'=>'form-control']);
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('Enregistrer')) ?>
     <?= $this->Form->end() ?>
 </div>
